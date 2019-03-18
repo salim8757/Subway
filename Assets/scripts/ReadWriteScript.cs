@@ -6,8 +6,8 @@ public class ReadWriteScript : MonoBehaviour
 {
 
 
-    string key = "PlayerScore";
-    float maxScore = 70;
+   public string key = "PlayerScore";
+    float maxScore = 80;
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +25,13 @@ public class ReadWriteScript : MonoBehaviour
 
     void getMaxScore()
     {
-        Debug.Log(PlayerPrefs.GetFloat(key).ToString());
+        Debug.Log(PlayerPrefs.GetFloat(key));
+        //Debug.Log(PlayerPrefs.GetFloat(key).ToString());
     }
 
     void resetScore()
     {
-        PlayerPrefs.DeleteKey(key);
+        //PlayerPrefs.DeleteKey(key);
         
     }
 
