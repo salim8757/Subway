@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class MainMenuControllerScript : MonoBehaviour
 {
 
-    public Button playButton, saveSettingButton;
+    public Button playButton;
     public Text score, maxScore;
 
     // Start is called before the first frame update
