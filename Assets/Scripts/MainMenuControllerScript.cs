@@ -8,6 +8,7 @@ public class MainMenuControllerScript : MonoBehaviour
 {
 
     public Button playButton, saveSettingButton;
+    public Text score, maxScore;
 
     // Start is called before the first frame update
     void Start()
@@ -25,4 +26,23 @@ public class MainMenuControllerScript : MonoBehaviour
     {
         SceneManager.LoadScene("GameScene");
     }
+
+    public void SoundOn(bool newValue)
+    {
+        if (newValue)
+        {
+            // Turn Sound on
+        }
+
+    }
+
+    public void MusicOn(bool newValue)
+    {
+        if (newValue)
+        {
+            // Turn Music on
+        }
+
+    }
+
 }
