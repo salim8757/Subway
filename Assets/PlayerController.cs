@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     GameObject Coin;
-
+    Transform myTransform;
     float spwanTimer = 1;
 
     List<GameObject> allCoins;
@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        myTransform = GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -24,8 +24,9 @@ public class PlayerController : MonoBehaviour
         if (spwanTimer <= 0)
         {
             spwanTimer = 1;
-            allCoins.Add(Instantiate(Coin, new Vector3(Random.Range(-0.9f, 0.9f), 0.5f, Random.Range(-0.9f, 0.9f)),
-                Coin.transform.rotation));
+
+            Instantiate(Coin, new Vector3
+            (Random.Range(-0.9f, 0.9f), 0.5f, myTransform.transform.position.z + 5), Coin.transform.rotation);
         }
     }
 }
