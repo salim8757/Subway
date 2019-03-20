@@ -19,7 +19,8 @@ public class MainMenuControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // Set the text's score
+        //  Set the text's highest score
     }
 
     void SwitchScene()
@@ -32,6 +33,7 @@ public class MainMenuControllerScript : MonoBehaviour
         if (newValue)
         {
             // Turn Sound on
+            print("Sounds on");
         }
 
     }
@@ -41,8 +43,11 @@ public class MainMenuControllerScript : MonoBehaviour
         if (newValue)
         {
             // Turn Music on
+            print("Music on");
         }
 
     }
+
+    
 
 }
