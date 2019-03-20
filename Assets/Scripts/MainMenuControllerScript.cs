@@ -8,12 +8,15 @@ public class MainMenuControllerScript : MonoBehaviour
 {
 
     public Button playButton;
-    public Text score, maxScore;
+    public Text Score, HighestScore;
+    public int GameCount = 0; 
 
     // Start is called before the first frame update
     void Start()
     {
         playButton.onClick.AddListener(SwitchScene);
+        HighestScore.enabled = false;
+        Score.enabled = false;
     }
 
     // Update is called once per frame
@@ -21,10 +24,17 @@ public class MainMenuControllerScript : MonoBehaviour
     {
         // Set the text's score
         //  Set the text's highest score
+
+        if (GameCount != 0)
+        {
+            HighestScore.enabled = true;
+            Score.enabled = true;
+        }
     }
 
     void SwitchScene()
     {
+        GameCount++;
         SceneManager.LoadScene("GameScene");
     }
 

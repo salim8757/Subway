@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 175395400}
   - component: {fileID: 175395399}
   m_Layer: 5
-  m_Name: HighestScore
+  m_Name: HighestScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1164,7 +1164,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hello
+  m_Text: Hi!
 --- !u!222 &1345200453
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1304,7 +1304,7 @@ GameObject:
   - component: {fileID: 1618959037}
   - component: {fileID: 1618959036}
   m_Layer: 5
-  m_Name: Score
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1555,8 +1555,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playButton: {fileID: 1298342195}
-  score: {fileID: 0}
-  maxScore: {fileID: 0}
+  Score: {fileID: 1618959036}
+  HighestScore: {fileID: 175395399}
+  GameCount: 0
 --- !u!1 &1848042851
 GameObject:
   m_ObjectHideFlags: 0
