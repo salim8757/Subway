@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7905566106497514360}
   - component: {fileID: 7905566106497514361}
   - component: {fileID: 7905566106497514362}
-  - component: {fileID: 3389621086880049543}
   - component: {fileID: 7905566106497514363}
   m_Layer: 0
   m_Name: Coin 1
@@ -83,20 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &3389621086880049543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4808837344552562196, guid: 4819233c87936014aaaa218b599a97c5,
-    type: 3}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7905566106497514356}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44282283f8a2ade4bafeeb8f910119ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Coin: {fileID: 7905566106497514356}
 --- !u!135 &7905566106497514363
 SphereCollider:
   m_ObjectHideFlags: 0

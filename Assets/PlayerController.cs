@@ -9,13 +9,12 @@ public class PlayerController : MonoBehaviour
     GameObject Coin;
     Transform myTransform;
     float spwanTimer = 1;
-
-    List<GameObject> allCoins;
-
+    public AudioSource CollectCoinAudio;
     // Start is called before the first frame update
     void Start()
     {
         myTransform = GetComponent<Transform>();
+        CollectCoinAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -32,12 +31,17 @@ public class PlayerController : MonoBehaviour
     }
     public Text Scoring;
     int Score;
+    public Text GameOver;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Coin")
-        Destroy(other.gameObject);
-        Score++;
-        Scoring.text = "Score: " + Score;
+        {
+            Destroy(other.gameObject);
+            Score++;
+            Scoring.text = "Score: " + Score;
+            CollectCoinAudio.Play();
+        }
+        
     }
 }

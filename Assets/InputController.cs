@@ -9,10 +9,13 @@ public class InputController : MonoBehaviour
     private float Speed = 5;
     public bool isFalling;
     Rigidbody playerRigidbody;
+    public AudioSource HitAudio;
+
     // Start is called before the first frame update
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();
+        HitAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,6 +42,14 @@ public class InputController : MonoBehaviour
     void OnCollisionStay()
     {
         isFalling = false;
+    }
+    public void OnTriggerEnter(Collider collision)
+    {
+        if (collision.tag == "Stone")
+        {
+            HitAudio.Play();
+            Destroy(this);
 
+        }
     }
 }
