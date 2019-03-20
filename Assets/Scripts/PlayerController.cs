@@ -1,38 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public static PlayerController Instance;
+    public Text GameOver, scoreText, CoinText;
 
-    public Player MyPlayer { get; set; }
 
-    void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(this);
-
-        DontDestroyOnLoad(gameObject);
-    }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        GameOver.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //print(MyPlayer.Health);
+        
     }
 
-    public void MoveForward()
+    private void OnCollisionEnter(Collision collision)
     {
-        MyPlayer.transform.Translate(1, 0, 0);
+        if (collision.gameObject.tag == "Stone")
+        {
+            GameOver.enabled = true;
+            Destroy(gameObject);
+            // Record the score 
+
+        }
+
     }
 
 }

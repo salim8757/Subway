@@ -11,6 +11,7 @@ public class MainMenuControllerScript : MonoBehaviour
     public Text Score, HighestScore;
     public int GameCount = 0; 
 
+
     // Start is called before the first frame update
     void Start()
     {
