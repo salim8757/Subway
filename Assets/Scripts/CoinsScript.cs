@@ -53,11 +53,11 @@ public class CoinsScript : MonoBehaviour
             spwanTimer = 2;
 
 
-            float RandX = Random.Range(-1.601f, 1.57f);
+            float RandX = Random.Range(-1f, 1f);
 
             //float RandZ = Random.Range(43.04f, 153.74f);
 
-            float RandY = Random.Range(1f, 3f);
+            float RandY = Random.Range(1f, 1.5f);
 
 
 

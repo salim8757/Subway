@@ -8,7 +8,7 @@ public class MoveGround : MonoBehaviour
 
 {
     float OriginalPos = 35f;
-    private float Speed = 50;
+    private float Speed = 10;
 
     // Start is called before the first frame update
 
