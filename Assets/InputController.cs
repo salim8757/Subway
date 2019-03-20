@@ -43,13 +43,4 @@ public class InputController : MonoBehaviour
     {
         isFalling = false;
     }
-    public void OnTriggerEnter(Collider collision)
-    {
-        if (collision.tag == "Stone")
-        {
-            HitAudio.Play();
-            Destroy(this);
-
-        }
-    }
 }
