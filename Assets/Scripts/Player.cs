@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
 
     public Text GameOver, scoreText, CoinText;
+    public float Score { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -19,8 +20,8 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-
+    { 
+        // Movement
     }
 
     private void OnCollisionEnter(Collision collision)
