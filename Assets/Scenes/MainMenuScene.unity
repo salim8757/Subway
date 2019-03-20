@@ -1557,6 +1557,7 @@ MonoBehaviour:
   playButton: {fileID: 1298342195}
   Score: {fileID: 1618959036}
   HighestScore: {fileID: 175395399}
+  Title: {fileID: 0}
   GameCount: 0
 --- !u!1 &1848042851
 GameObject:

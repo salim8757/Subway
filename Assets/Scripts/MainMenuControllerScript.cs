@@ -8,7 +8,7 @@ public class MainMenuControllerScript : MonoBehaviour
 {
 
     public Button playButton;
-    public Text Score, HighestScore;
+    public Text Score, HighestScore, Title;
     public int GameCount = 0; 
 
 
@@ -30,6 +30,7 @@ public class MainMenuControllerScript : MonoBehaviour
         {
             HighestScore.enabled = true;
             Score.enabled = true;
+            Title.text = "Welcome ";
         }
     }
 
