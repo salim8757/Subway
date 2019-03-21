@@ -9,7 +9,8 @@ public class MainMenuControllerScript : MonoBehaviour
 
     public Button playButton;
     public Text Score, HighestScore, Title;
-    public int GameCount = 0; 
+    public int GameCount = 0;
+
 
 
     // Start is called before the first frame update
@@ -29,7 +30,7 @@ public class MainMenuControllerScript : MonoBehaviour
         if (GameCount != 0)
         {
             HighestScore.enabled = true;
-            Score.enabled = true;
+            //Score.enabled = true;
             Title.text = "Welcome ";
         }
 
@@ -47,26 +48,18 @@ public class MainMenuControllerScript : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
-    public void SoundOn(bool newValue)
+    public void SoundOn()
     {
-        if (newValue)
-        {
-            // Turn Sound on
-            print("Sounds on");
-        }
-
+        // Turn Sound on
+        //print("Sounds on");
+        //// AudioScript.Instance.SoundOn = true;
+        //AudioScript.Instance.CollectCoinsAudio(true);
+        //AudioScript.Instance.HitAudio();
+        AudioScript.Instance.ToggleMuteSound();
     }
 
-    public void MusicOn(bool newValue)
+    public void MusicOn()
     {
-        if (newValue)
-        {
-            // Turn Music on
-            print("Music on");
-        }
-
+        AudioScript.Instance.Music();
     }
-
-    
-
 }

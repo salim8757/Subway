@@ -21,10 +21,11 @@ public class Player : MonoBehaviour
 
     Rigidbody playerRigidbody;
 
-    public AudioSource HitAudio;
+   // public AudioSource HitAudio;
     Vector3 originalposition;
 
-  
+    public AudioClip CollectCoinAudio;
+    public AudioClip HitAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +34,11 @@ public class Player : MonoBehaviour
         //GameOver.enabled = false;
         playerRigidbody = GetComponent<Rigidbody>();
 
-        HitAudio = GetComponent<AudioSource>();
+       // HitAudio = GetComponent<AudioSource>();
         originalposition = transform.position;
+
+
+ 
     }
 
     // Update is called once per frame
@@ -86,14 +90,16 @@ public class Player : MonoBehaviour
         {
             GameOver.enabled = true;
             Destroy(gameObject);
-
+            //AudioSource audio = GetComponent<AudioSource>();
+            //audio.PlayOneShot(HitAudio);
             //DataManager.Instance.MaxScore = 10;
-           // scoreText
-
+            // scoreText
             //print(DataManager.Instance.MaxScore);
+            //AudioScript.Instance.HitAudio(true);
 
             SceneManager.LoadScene("MainMenuScene");
             print("GAMEOVER");
+            AudioScript.Instance.PlaySound("Hit");
         }
 
     }
@@ -112,10 +118,14 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
             Coin++;
             CoinText.text = "Coin : " + Coin;
-            AudioSource audio = GetComponent<AudioSource>();
+            //AudioSource audio = GetComponent<AudioSource>();
 
             //audio.PlayOneShot(CollectCoinAudio);
 
+            //AudioSource audio = GetComponent<AudioSource>();
+            //audio.PlayOneShot(CollectCoinAudio);
+            //AudioScript.Instance.CollectCoinsAudio();
+            AudioScript.Instance.PlaySound("Collect");
         }
 
 

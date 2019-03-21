@@ -82,7 +82,7 @@ public class MoveGround : MonoBehaviour
 
         time += Time.deltaTime;
 
-        print("My speed:" + currentSpeed);
+       // print("My speed:" + currentSpeed);
 
     }
 
