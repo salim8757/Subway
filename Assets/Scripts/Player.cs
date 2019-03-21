@@ -7,17 +7,24 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
 
-    ////public Text GameOver, scoreText, CoinText;
-    ////public float Score { get; set; }
-    private float jump = 2;
+    public static Player Instance;
+
+    public Text GameOver, scoreText, CoinText;
+    public float Coin { get; set; }
+    public float Score { get; set; }
+
+    private float gravity = -2;
 
     private float Speed = 5;
 
-    public bool isFalling ;
+    public bool isFalling;
 
     Rigidbody playerRigidbody;
 
     public AudioSource HitAudio;
+    Vector3 originalposition;
+
+  
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +34,7 @@ public class Player : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody>();
 
         HitAudio = GetComponent<AudioSource>();
+        originalposition = transform.position;
     }
 
     // Update is called once per frame
@@ -48,36 +56,72 @@ public class Player : MonoBehaviour
 
 
 
-        if (Input.GetKey(KeyCode.Space) && isFalling == false )
-
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            print("jump");
-            //playerRigidbody.velocity = new Vector3(0f, jump, 0f);
-            transform.Translate(0, jump,0);
-           // transform.up(0, jump, 0);
-            isFalling = true;
-            comeBack();
+
+          transform.position = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
+          print("up");
+            
+
 
         }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+
+          transform.position = originalposition;
+           print("down");
+
+        }
+
+        caculateScore();
+
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        print("Collision");
         if (collision.gameObject.tag == "Stone")
         {
-            ////GameOver.enabled = true;
-            ////Destroy(gameObject);
-            ////// Record the score 
-            ////SceneManager.LoadScene("MainMenuScene
+            GameOver.enabled = true;
+            Destroy(gameObject);
+
+            //DataManager.Instance.MaxScore = 10;
+           // scoreText
+
+            //print(DataManager.Instance.MaxScore);
+
+            SceneManager.LoadScene("MainMenuScene");
             print("GAMEOVER");
         }
 
     }
 
+  
+
+
+
     private void OnTriggerEnter(Collider other)
+
     {
+        print("onTrigger");
+        if (other.tag == "coin")
+
+        {
+            Destroy(other.gameObject);
+            Coin++;
+            CoinText.text = "Coin : " + Coin;
+            AudioSource audio = GetComponent<AudioSource>();
+
+            //audio.PlayOneShot(CollectCoinAudio);
+
+        }
+
+
 
     }
+
 
 
     void comeBack()
@@ -87,5 +131,11 @@ public class Player : MonoBehaviour
         isFalling = false;
         transform.Translate(0, 0, 0);
 
+    }
+
+    void caculateScore()
+    {
+        Score = Time.deltaTime * 100;
+        scoreText.text = "Score: " + Score;
     }
 }

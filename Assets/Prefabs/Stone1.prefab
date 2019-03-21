@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1909207947}
   - component: {fileID: 1909207946}
   - component: {fileID: 5412889299158306778}
-  - component: {fileID: 7041075416431581766}
-  - component: {fileID: 2669795492415280107}
+  - component: {fileID: 4985185395737511520}
+  - component: {fileID: 338577698}
   m_Layer: 0
   m_Name: Stone1
   m_TagString: Stone
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b951f3ef870d4e842813b33eab5aff9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &7041075416431581766
+--- !u!65 &4985185395737511520
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,9 +103,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.47, y: 0.89, z: 0.52529526}
+  m_Size: {x: 0.481987, y: 0.28297952, z: 0.52529526}
   m_Center: {x: -0.0038753455, y: -0.0010625719, z: 0.0036155581}
---- !u!54 &2669795492415280107
+--- !u!54 &338577698
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,7 +117,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0

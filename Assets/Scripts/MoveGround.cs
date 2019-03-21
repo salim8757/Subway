@@ -8,14 +8,27 @@ public class MoveGround : MonoBehaviour
 
 {
     float OriginalPos = 35f;
-    private float Speed = 10;
+    //private float Speed = 10;
+
+    float accelerationTime = 60;
+
+    float minSpeed;
+
+    float time;
+
+    float currentSpeed = 10f;
+
+    float maxSpeed = 100f;
+
 
     // Start is called before the first frame update
 
     void Start()
 
     {
+        minSpeed = currentSpeed;
 
+        time = 0;
     }
 
 
@@ -26,7 +39,7 @@ public class MoveGround : MonoBehaviour
 
     {
 
-        transform.Translate(0, 0, Time.deltaTime * -Speed);
+        transform.Translate(0, 0, Time.deltaTime * -currentSpeed);
 
         if (transform.position.z <= -66)
 
@@ -53,6 +66,23 @@ public class MoveGround : MonoBehaviour
             }
 
         }
+
+        increaseSpead();
+
+    }
+
+
+    void increaseSpead()
+
+    {
+
+
+
+        currentSpeed = Mathf.SmoothStep(minSpeed, maxSpeed, time / accelerationTime);
+
+        time += Time.deltaTime;
+
+        print("My speed:" + currentSpeed);
 
     }
 

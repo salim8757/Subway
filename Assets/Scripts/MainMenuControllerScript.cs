@@ -32,6 +32,13 @@ public class MainMenuControllerScript : MonoBehaviour
             Score.enabled = true;
             Title.text = "Welcome ";
         }
+
+        //DataManager.Instance.MaxScore = 0;
+
+        //HighestScore.text = Player.Instance.Score.ToString();
+        //print(DataManager.Instance.MaxScore);
+        //HighestScore.enabled = true;
+
     }
 
     void SwitchScene()
