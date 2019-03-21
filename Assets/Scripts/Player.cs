@@ -10,7 +10,9 @@ public class Player : MonoBehaviour
     public static Player Instance;
 
     public Text GameOver, scoreText, CoinText;
+
     public float Coin { get; set; }
+
     public float Score { get; set; }
 
     private float gravity = -2;
@@ -18,27 +20,37 @@ public class Player : MonoBehaviour
     private float Speed = 5;
 
     public bool isFalling;
+  
 
     Rigidbody playerRigidbody;
 
    // public AudioSource HitAudio;
-    Vector3 originalposition;
+  //  Vector3 originalposition;
 
     public AudioClip CollectCoinAudio;
     public AudioClip HitAudio;
 
+
+    void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(this);
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
-        //PlayerController.Instance.MyPlayer = this;
-        //GameOver.enabled = false;
+
+        GameOver.enabled = false;
         playerRigidbody = GetComponent<Rigidbody>();
+        
+     //   originalposition = transform.position;
 
-       // HitAudio = GetComponent<AudioSource>();
-        originalposition = transform.position;
-
-
- 
     }
 
     // Update is called once per frame
@@ -47,9 +59,7 @@ public class Player : MonoBehaviour
         //transform.Translate(Vector3.forward * Speed * Time.deltaTime);
 
         if (Input.GetKey(KeyCode.RightArrow))
-
             transform.position = new Vector3(transform.position.x
-
                 + 5 * Time.deltaTime, transform.position.y, transform.position.z);
 
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -65,18 +75,16 @@ public class Player : MonoBehaviour
 
           transform.position = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
           print("up");
-            
-
-
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
-
-          transform.position = originalposition;
-           print("down");
-
+            transform.position = new Vector3(transform.position.x, transform.position.y - 3, transform.position.z);
+            //transform.position = originalposition;
+            print("down");
         }
+
+
 
         caculateScore();
 
@@ -90,16 +98,14 @@ public class Player : MonoBehaviour
         {
             GameOver.enabled = true;
             Destroy(gameObject);
-            //AudioSource audio = GetComponent<AudioSource>();
-            //audio.PlayOneShot(HitAudio);
-            //DataManager.Instance.MaxScore = 10;
-            // scoreText
-            //print(DataManager.Instance.MaxScore);
-            //AudioScript.Instance.HitAudio(true);
-
-            SceneManager.LoadScene("MainMenuScene");
-            print("GAMEOVER");
+            
             AudioScript.Instance.PlaySound("Hit");
+
+
+           for(int i=0;i<=50;i++)
+            {
+                SceneManager.LoadScene("MainMenuScene");
+            }
         }
 
     }
@@ -118,34 +124,36 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
             Coin++;
             CoinText.text = "Coin : " + Coin;
-            //AudioSource audio = GetComponent<AudioSource>();
 
-            //audio.PlayOneShot(CollectCoinAudio);
-
-            //AudioSource audio = GetComponent<AudioSource>();
-            //audio.PlayOneShot(CollectCoinAudio);
-            //AudioScript.Instance.CollectCoinsAudio();
             AudioScript.Instance.PlaySound("Collect");
         }
 
-
-
     }
 
 
 
-    void comeBack()
+    //void comeBack()
+    //{
+    //    isFalling = false;
+    //    transform.Translate(0, 0, 0);
 
-    {
-
-        isFalling = false;
-        transform.Translate(0, 0, 0);
-
-    }
+    //}
 
     void caculateScore()
     {
-        Score = Time.deltaTime * 100;
+        Score = Time.deltaTime * 1000;
+
+        //Score = Player.Instance.Score;
+        //Score.enabled = true;
+
+        
         scoreText.text = "Score: " + Score;
+      
+        //print("MAx Score:"+Score);
+
+        //if (Score > MaxScore )
+        //{
+        //    MaxScore = Score;
+        //}
     }
 }

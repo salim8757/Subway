@@ -9,7 +9,8 @@ public class MainMenuControllerScript : MonoBehaviour
 
     public Button playButton;
     public Text Score, HighestScore, Title;
-    public int GameCount = 0;
+   // public int GameCount = 0;
+    public float maxScore = 0.0f;
 
 
 
@@ -27,12 +28,20 @@ public class MainMenuControllerScript : MonoBehaviour
         // Set the text's score
         //  Set the text's highest score
 
-        if (GameCount != 0)
-        {
+      
+
+            Title.text = "Game Over";
+            float currentScore = Player.Instance.Score;
+            //float MAX_Score = Player.Instance.MaxScore;
             HighestScore.enabled = true;
-            //Score.enabled = true;
-            Title.text = "Welcome ";
-        }
+            Score.enabled = true;
+
+            Score.text = currentScore.ToString();
+            checkMax();
+
+
+
+        
 
         //DataManager.Instance.MaxScore = 0;
 
@@ -44,7 +53,7 @@ public class MainMenuControllerScript : MonoBehaviour
 
     void SwitchScene()
     {
-        GameCount++;
+       // GameCount++;
         SceneManager.LoadScene("GameScene");
     }
 
@@ -61,5 +70,16 @@ public class MainMenuControllerScript : MonoBehaviour
     public void MusicOn()
     {
         AudioScript.Instance.Music();
+    }
+
+    public void checkMax()
+    {
+        if (Player.Instance.Score > maxScore)
+        {
+            maxScore = Player.Instance.Score;
+            
+        }
+        HighestScore.text = maxScore.ToString();
+
     }
 }

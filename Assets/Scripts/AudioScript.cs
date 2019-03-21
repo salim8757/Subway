@@ -40,29 +40,29 @@ public class AudioScript : MonoBehaviour
 
     }
 
-    public void HitAudio()
-    {
-        if (myAudio.isPlaying)
-        {
-            myAudio.clip = HitStone;
+    //public void HitAudio()
+    //{
+    //    if (myAudio.isPlaying)
+    //    {
+    //        myAudio.clip = HitStone;
 
-            myAudio.Stop();
-            print("hit Audio");
-        }
-        else
-            myAudio.Play();
-    }
+    //        myAudio.Stop();
+    //        print("hit Audio");
+    //    }
+    //    else
+    //        myAudio.Play();
+    //}
 
-    public void CollectCoinsAudio(bool on)
-    {
-        if (on)
-        {
-            myAudio.clip = eatCoin;
+    //public void CollectCoinsAudio(bool on)
+    //{
+    //    if (on)
+    //    {
+    //        myAudio.clip = eatCoin;
 
-            myAudio.Play();
-            print("eat Audio");
-        }
-    }
+    //        myAudio.Play();
+    //        print("eat Audio");
+    //    }
+    //}
 
     public void PlaySound(string soundName)
     {
