@@ -141,14 +141,14 @@ public class Player : MonoBehaviour
 
     void caculateScore()
     {
-        Score = Time.deltaTime * 1000;
-
+        Score = Time.deltaTime * 100;
+         
         //Score = Player.Instance.Score;
         //Score.enabled = true;
 
-        
+
         scoreText.text = "Score: " + Score;
-      
+        DataManager.Instance.MaxScore = Score;
         //print("MAx Score:"+Score);
 
         //if (Score > MaxScore )

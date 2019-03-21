@@ -9,8 +9,9 @@ public class MainMenuControllerScript : MonoBehaviour
 
     public Button playButton;
     public Text Score, HighestScore, Title;
-   // public int GameCount = 0;
-    public float maxScore = 0.0f;
+    // public int GameCount = 0;
+    public float maxScore;
+    
 
 
 
@@ -18,8 +19,8 @@ public class MainMenuControllerScript : MonoBehaviour
     void Start()
     {
         playButton.onClick.AddListener(SwitchScene);
-        HighestScore.enabled = false;
-        Score.enabled = false;
+        HighestScore.enabled = true;
+        Score.enabled = true;
     }
 
     // Update is called once per frame
@@ -32,9 +33,10 @@ public class MainMenuControllerScript : MonoBehaviour
 
             Title.text = "Game Over";
             float currentScore = Player.Instance.Score;
+             print(currentScore);
             //float MAX_Score = Player.Instance.MaxScore;
-            HighestScore.enabled = true;
-            Score.enabled = true;
+            // HighestScore.enabled = true;
+            // Score.enabled = true;
 
             Score.text = currentScore.ToString();
             checkMax();
@@ -74,12 +76,17 @@ public class MainMenuControllerScript : MonoBehaviour
 
     public void checkMax()
     {
-        if (Player.Instance.Score > maxScore)
+
+        float scoreCurrGame = Player.Instance.Score;
+        float HScoreWholeGame = DataManager.Instance.MaxScore;
+        if (scoreCurrGame > HScoreWholeGame)
         {
-            maxScore = Player.Instance.Score;
-            
+            //DataManager.Instance.MaxScore = Player.Instance.Score;
+            HScoreWholeGame = scoreCurrGame;
         }
-        HighestScore.text = maxScore.ToString();
+        HighestScore.text = HScoreWholeGame.ToString();
+        DataManager.Instance.MaxScore = HighestScore;
+
 
     }
 }
