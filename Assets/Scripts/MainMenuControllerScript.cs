@@ -26,10 +26,7 @@ public class MainMenuControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Set the text's score
-        //  Set the text's highest score
-
-      
+     
 
             Title.text = "Game Over";
             float currentScore = Player.Instance.Score;
@@ -39,11 +36,20 @@ public class MainMenuControllerScript : MonoBehaviour
             // Score.enabled = true;
 
             Score.text = currentScore.ToString();
-            checkMax();
+        //eckMax();
+        float scoreCurrGame = Player.Instance.Score;
+        float HScoreWholeGame = DataManager.Instance.MaxScore;
+        if (scoreCurrGame > HScoreWholeGame)
+        {
+            //DataManager.Instance.MaxScore = Player.Instance.Score;
+            HScoreWholeGame = scoreCurrGame;
+        }
+        DataManager.Instance.MaxScore = HScoreWholeGame;
+
+        HighestScore.text = HScoreWholeGame.ToString();
 
 
 
-        
 
         //DataManager.Instance.MaxScore = 0;
 
@@ -78,14 +84,16 @@ public class MainMenuControllerScript : MonoBehaviour
     {
 
         float scoreCurrGame = Player.Instance.Score;
-        float HScoreWholeGame = DataManager.Instance.MaxScore;
+        float HScoreWholeGame = 0;
+         HScoreWholeGame = DataManager.Instance.MaxScore;
         if (scoreCurrGame > HScoreWholeGame)
         {
             //DataManager.Instance.MaxScore = Player.Instance.Score;
             HScoreWholeGame = scoreCurrGame;
         }
+        DataManager.Instance.MaxScore = HScoreWholeGame;
+
         HighestScore.text = HScoreWholeGame.ToString();
-        DataManager.Instance.MaxScore = HighestScore;
 
 
     }

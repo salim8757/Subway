@@ -6,32 +6,7 @@ using UnityEngine;
 public class DataManager : MonoBehaviour
 {
     public static DataManager Instance;
-    public float MaxScore
-    {
-        get
-        {
-            return PlayerPrefs.GetFloat("PlayerScore", 0);
-        }
-        set
-        {
-
-            PlayerPrefs.SetFloat("PlayerScore", value);
-        }
-    }
-
-    public string PlayerName
-
-    {
-        get
-
-        {
-            return PlayerPrefs.GetString("Name", "");
-        }
-        set
-        {
-            PlayerPrefs.SetString("Name", value);
-        }
-    }
+    public float MaxScore { get; set; }
 
     // Start is called before the first frame update
     void Awake()
