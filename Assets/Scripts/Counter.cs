@@ -2,19 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class DataManager : MonoBehaviour
+public class Counter : MonoBehaviour
 {
-    public static DataManager Instance;
+
+    public static Counter Instance;
+    public int countGame;
 
 
-    public List<float> PlayerScore = new List<float>();
-    public float Score; 
-
-
-    // Start is called before the first frame update
     void Awake()
-
     {
         if (Instance == null)
             Instance = this;
@@ -24,13 +19,15 @@ public class DataManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    // Start is called before the first frame update
     void Start()
-
     {
-
+        
     }
 
-    
-   
-
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

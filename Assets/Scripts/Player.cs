@@ -6,14 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-
     public static Player Instance;
+
+
 
     public Text GameOver, scoreText, CoinText;
 
     public float Coin { get; set; }
 
-    public float Score { get; set; }
+    public float Score = 0;
+    public float FinalScore = 0;
+    float MaxScore = 0;
 
     private float gravity = -2;
 
@@ -70,16 +73,17 @@ public class Player : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
 
-          transform.position = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
-          print("up");
+          transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+            //print("up")
+
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y - 3, transform.position.z);
+            transform.position = new Vector3(transform.position.x, transform.position.y - 2, transform.position.z);
             //transform.position = originalposition;
             print("down");
         }
@@ -96,6 +100,11 @@ public class Player : MonoBehaviour
         print("Collision");
         if (collision.gameObject.tag == "Stone")
         {
+            //FinalScore = Score;
+            DataManager.Instance.PlayerScore.Add(Score);
+            DataManager.Instance.Score = Score; 
+
+
             GameOver.enabled = true;
             Destroy(gameObject);
             
@@ -132,28 +141,15 @@ public class Player : MonoBehaviour
 
 
 
-    //void comeBack()
-    //{
-    //    isFalling = false;
-    //    transform.Translate(0, 0, 0);
-
-    //}
-
     void caculateScore()
     {
-        Score = Time.deltaTime * 100;
-         
-        //Score = Player.Instance.Score;
-        //Score.enabled = true;
+        //Score = Time.deltaTime * 100;
 
-
+        Score += 1;
         scoreText.text = "Score: " + Score;
-        DataManager.Instance.MaxScore = Score;
-        //print("MAx Score:"+Score);
+        //DataManager.Instance.tempScore = Score;
 
-        //if (Score > MaxScore )
-        //{
-        //    MaxScore = Score;
-        //}
     }
+
+   
 }

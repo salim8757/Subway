@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,9 +10,11 @@ public class MainMenuControllerScript : MonoBehaviour
 
     public Button playButton;
     public Text Score, HighestScore, Title;
-    // public int GameCount = 0;
-    public float maxScore;
-    
+    public float currScore;
+     float maxScore;
+     float tempMaxScore;
+    int Length;
+     List<float> PlayerScore = new List<float>();
 
 
 
@@ -19,49 +22,34 @@ public class MainMenuControllerScript : MonoBehaviour
     void Start()
     {
         playButton.onClick.AddListener(SwitchScene);
-        HighestScore.enabled = true;
-        Score.enabled = true;
+        //currScore = DataManager.Instance.Score;
+        Score.text = "Your Score: " + DataManager.Instance.Score.ToString();
+        HighestScore.text = "Your Highest Score: " + PlayerPrefs.GetFloat("HighScore", 0).ToString();
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-     
+    
+        Title.text = "Game Over";
 
-            Title.text = "Game Over";
-            float currentScore = Player.Instance.Score;
-             print(currentScore);
-            //float MAX_Score = Player.Instance.MaxScore;
-            // HighestScore.enabled = true;
-            // Score.enabled = true;
 
-            Score.text = currentScore.ToString();
-        //eckMax();
-        float scoreCurrGame = Player.Instance.Score;
-        float HScoreWholeGame = DataManager.Instance.MaxScore;
-        if (scoreCurrGame > HScoreWholeGame)
+        maxScore = DataManager.Instance.Score;
+
+        if (maxScore > PlayerPrefs.GetFloat("HighScore", 0))
         {
-            //DataManager.Instance.MaxScore = Player.Instance.Score;
-            HScoreWholeGame = scoreCurrGame;
+            PlayerPrefs.SetFloat("HighScore", maxScore);
+            HighestScore.text = "Your Highest Score: " + maxScore.ToString();
         }
-        DataManager.Instance.MaxScore = HScoreWholeGame;
-
-        HighestScore.text = HScoreWholeGame.ToString();
-
-
-
-
-        //DataManager.Instance.MaxScore = 0;
-
-        //HighestScore.text = Player.Instance.Score.ToString();
-        //print(DataManager.Instance.MaxScore);
-        //HighestScore.enabled = true;
 
     }
 
     void SwitchScene()
     {
-       // GameCount++;
+        //Counter.Instance.countGame++;
+
         SceneManager.LoadScene("GameScene");
     }
 
@@ -80,21 +68,5 @@ public class MainMenuControllerScript : MonoBehaviour
         AudioScript.Instance.Music();
     }
 
-    public void checkMax()
-    {
 
-        float scoreCurrGame = Player.Instance.Score;
-        float HScoreWholeGame = 0;
-         HScoreWholeGame = DataManager.Instance.MaxScore;
-        if (scoreCurrGame > HScoreWholeGame)
-        {
-            //DataManager.Instance.MaxScore = Player.Instance.Score;
-            HScoreWholeGame = scoreCurrGame;
-        }
-        DataManager.Instance.MaxScore = HScoreWholeGame;
-
-        HighestScore.text = HScoreWholeGame.ToString();
-
-
-    }
 }

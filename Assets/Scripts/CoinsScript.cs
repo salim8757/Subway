@@ -11,9 +11,6 @@ using UnityEngine.UI;
 public class CoinsScript : MonoBehaviour
 
 {
-
-
-
     [SerializeField]
 
     GameObject Coin;
