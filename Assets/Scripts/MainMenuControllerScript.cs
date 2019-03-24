@@ -10,11 +10,9 @@ public class MainMenuControllerScript : MonoBehaviour
 
     public Button playButton;
     public Text Score, HighestScore, Title;
-    public float currScore;
-     float maxScore;
-     float tempMaxScore;
-      int Length;
-     List<float> PlayerScore = new List<float>();
+    float maxScore;
+   
+    
 
 
 
@@ -33,7 +31,7 @@ public class MainMenuControllerScript : MonoBehaviour
     void Update()
     {
     
-        //Title.text = "Game Over";
+       
 
 
         maxScore = DataManager.Instance.Score;
@@ -48,18 +46,14 @@ public class MainMenuControllerScript : MonoBehaviour
 
     void SwitchScene()
     {
-        //Counter.Instance.countGame++;
+      
 
         SceneManager.LoadScene("GameScene");
     }
 
     public void SoundOn()
     {
-        // Turn Sound on
-        //print("Sounds on");
-        //// AudioScript.Instance.SoundOn = true;
-        //AudioScript.Instance.CollectCoinsAudio(true);
-        //AudioScript.Instance.HitAudio();
+     
         AudioScript.Instance.ToggleMuteSound();
     }
 

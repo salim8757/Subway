@@ -52,7 +52,7 @@ public class CoinsScript : MonoBehaviour
 
             float RandX = Random.Range(-1f, 1f);
 
-            //float RandZ = Random.Range(43.04f, 153.74f);
+           
 
             float RandY = Random.Range(1f, 1.5f);
 
@@ -60,9 +60,7 @@ public class CoinsScript : MonoBehaviour
 
             Vector3 CoinPos = new Vector3(RandX, RandY, myTransform.transform.position.z + 3);
 
-            //Vector3 CoinPos = new Vector3(RandX, RandY, RandZ);
-
-
+         
 
             Instantiate(Coin, CoinPos, Coin.transform.rotation);
 

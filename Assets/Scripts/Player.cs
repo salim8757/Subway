@@ -18,9 +18,6 @@ public class Player : MonoBehaviour
     public float FinalScore = 0;
     float MaxScore = 0;
 
-    //private float gravity = -2;
-
-    //private float Speed = 5;
 
     public bool isFalling;
 
@@ -29,8 +26,7 @@ public class Player : MonoBehaviour
 
     Rigidbody playerRigidbody;
 
-   // public AudioSource HitAudio;
-  //  Vector3 originalposition;
+
 
     public AudioClip CollectCoinAudio;
     public AudioClip HitAudio;
@@ -54,14 +50,14 @@ public class Player : MonoBehaviour
         GameOver.enabled = false;
         playerRigidbody = GetComponent<Rigidbody>();
         
-     //   originalposition = transform.position;
+  
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        //transform.Translate(Vector3.forward * Speed * Time.deltaTime);
+      
 
         if (Input.GetKey(KeyCode.RightArrow))
             transform.position = new Vector3(transform.position.x
@@ -72,25 +68,6 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(transform.position.x
 
                 - 5 * Time.deltaTime, transform.position.y, transform.position.z);
-
-
-
-        //if (Input.GetKey(KeyCode.Space))
-        //{
-
-        //  transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
-        //    //print("up")
-
-        //}
-
-        //if (Input.GetKeyUp(KeyCode.Space))
-        //{
-        //    transform.position = new Vector3(transform.position.x, transform.position.y - 2, transform.position.z);
-        //    //transform.position = originalposition;
-        //    print("down");
-        //}
-       
-
 
 
         if (transform.position.y > 0)
@@ -118,7 +95,7 @@ public class Player : MonoBehaviour
         print("Collision");
         if (collision.gameObject.tag == "Stone")
         {
-            //FinalScore = Score;
+           
             DataManager.Instance.PlayerScore.Add(Score);
             DataManager.Instance.Score = Score; 
 

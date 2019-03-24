@@ -7,10 +7,6 @@ public class AudioScript : MonoBehaviour
 
     public static AudioScript Instance;
 
-    // public  bool MusicOn { get; set; }
-    //public bool SoundOn { get; set; }
-
-
     AudioSource myAudio;
 
     public AudioClip eatCoin;
@@ -40,29 +36,7 @@ public class AudioScript : MonoBehaviour
 
     }
 
-    //public void HitAudio()
-    //{
-    //    if (myAudio.isPlaying)
-    //    {
-    //        myAudio.clip = HitStone;
-
-    //        myAudio.Stop();
-    //        print("hit Audio");
-    //    }
-    //    else
-    //        myAudio.Play();
-    //}
-
-    //public void CollectCoinsAudio(bool on)
-    //{
-    //    if (on)
-    //    {
-    //        myAudio.clip = eatCoin;
-
-    //        myAudio.Play();
-    //        print("eat Audio");
-    //    }
-    //}
+  
 
     public void PlaySound(string soundName)
     {
@@ -79,14 +53,7 @@ public class AudioScript : MonoBehaviour
         myAudio.Play();
     }
 
-    //public void PlaySound(AudioClip soundClip)
-    //{
-
-    //    myAudio.clip = soundClip;
-
-
-    //    myAudio.Play();
-    //}
+   
 
     public void Music()
     {
