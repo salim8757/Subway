@@ -18,12 +18,14 @@ public class Player : MonoBehaviour
     public float FinalScore = 0;
     float MaxScore = 0;
 
-    private float gravity = -2;
+    //private float gravity = -2;
 
-    private float Speed = 5;
+    //private float Speed = 5;
 
     public bool isFalling;
-  
+
+    float jumpspeed;
+    float gravity = -10;
 
     Rigidbody playerRigidbody;
 
@@ -73,20 +75,36 @@ public class Player : MonoBehaviour
 
 
 
+        //if (Input.GetKey(KeyCode.Space))
+        //{
+
+        //  transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+        //    //print("up")
+
+        //}
+
+        //if (Input.GetKeyUp(KeyCode.Space))
+        //{
+        //    transform.position = new Vector3(transform.position.x, transform.position.y - 2, transform.position.z);
+        //    //transform.position = originalposition;
+        //    print("down");
+        //}
+       
+
+
+
+        if (transform.position.y > 0)
+        { jumpspeed += gravity * Time.deltaTime; }
+        else if (transform.position.y < 0)
+        { transform.position = new Vector3(transform.position.x, 0, transform.position.z); }
+
+
         if (Input.GetKey(KeyCode.Space))
         {
-
-          transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
-            //print("up")
-
+            jumpspeed = 10;
         }
 
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y - 2, transform.position.z);
-            //transform.position = originalposition;
-            print("down");
-        }
+        transform.position += Vector3.up * jumpspeed * Time.deltaTime;
 
 
 

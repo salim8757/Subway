@@ -13,7 +13,7 @@ public class MainMenuControllerScript : MonoBehaviour
     public float currScore;
      float maxScore;
      float tempMaxScore;
-    int Length;
+      int Length;
      List<float> PlayerScore = new List<float>();
 
 
@@ -33,7 +33,7 @@ public class MainMenuControllerScript : MonoBehaviour
     void Update()
     {
     
-        Title.text = "Game Over";
+        //Title.text = "Game Over";
 
 
         maxScore = DataManager.Instance.Score;
