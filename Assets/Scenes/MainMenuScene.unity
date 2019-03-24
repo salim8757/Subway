@@ -325,7 +325,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Your Highest Score
+  m_Text: 
 --- !u!222 &175395400
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1646,7 +1646,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Your Score
+  m_Text: 
 --- !u!222 &1618959037
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2245,6 +2245,11 @@ PrefabInstance:
     - target: {fileID: 3189241983236032264, guid: df366b0594a17e24f933a1f2b582eb33,
         type: 3}
       propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3189241983236032264, guid: df366b0594a17e24f933a1f2b582eb33,
+        type: 3}
+      propertyPath: Loop
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
